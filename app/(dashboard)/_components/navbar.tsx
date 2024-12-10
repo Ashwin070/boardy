@@ -7,8 +7,11 @@ import {
 } from "@clerk/nextjs";
 import { SearchInput } from "./search-input";
 import { InviteButton } from "./invite-button";
+import { useSearchParams } from "next/navigation";
 
 export const Navbar = () => {
+  const searchParams = useSearchParams();
+  const favorites = searchParams.get("favorites");
   const {organization} = useOrganization();
 
   return (
